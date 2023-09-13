@@ -1,0 +1,47 @@
+                         Database Schema For E-Medicare
+
+Admin-
+CREATE TABLE admin (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+User-
+CREATE TABLE user (
+    emailid VARCHAR(255) PRIMARY KEY,
+    password VARCHAR(255) NOT NULL,
+    typeofuser VARCHAR(255)
+);
+Medicine-
+CREATE TABLE medicine (
+    pid INT PRIMARY KEY AUTO_INCREMENT,
+    pname VARCHAR(255) NOT NULL,
+    price FLOAT NOT NULL,
+    url VARCHAR(255),
+    type VARCHAR(255),
+    description TEXT
+);
+
+
+
+Order-
+CREATE TABLE orders (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    user_id BIGINT NOT NULL,
+    product_id BIGINT NOT NULL,
+    quantity INT NOT NULL,
+    address VARCHAR(255)
+);
+Payment-(Credit Card)-
+CREATE TABLE creditcard (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    card_number VARCHAR(255) NOT NULL,
+    card_holder_name VARCHAR(255) NOT NULL,
+    expiration_date VARCHAR(10) NOT NULL
+);
+Payments-
+CREATE TABLE payment (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    payment_method VARCHAR(255) NOT NULL,
+    amount DOUBLE NOT NULL
+);
